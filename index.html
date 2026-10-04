@@ -8,62 +8,68 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Placeholder fonts until the real ones are confirmed from Figma -->
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Montserrat:wght@300;400&family=Silkscreen&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <!-- HERO -->
   <header class="hero" id="top">
+    <!-- Menu links are blurred; each one comes into focus on hover -->
     <nav class="nav">
-      <a href="#who">who we are</a>
-      <a href="#works">our works</a>
-      <a href="#contact">contact</a>
+      <a class="blur-focus" href="#who">who are we.</a>
+      <a class="blur-focus" href="works.html">our works.</a>
+      <a class="blur-focus" href="#contact">contact</a>
     </nav>
 
     <div class="hero__grid" aria-hidden="true">
       <span class="line line--v" style="left: 6%"></span>
-      <span class="line line--v" style="left: 40%"></span>
+      <span class="line line--v" style="left: 8.1%"></span>
+      <span class="line line--v" style="left: 40.6%"></span>
+      <span class="line line--v" style="left: 91.3%"></span>
     </div>
 
-    <h1 class="hero__text">
-      <span class="l1">A creative playground built</span>
-      <span class="l2">on one belief:</span>
-      <span class="l3">playing it</span>
-      <span class="l4">safe is</span>
-      <span class="l5">the riskiest</span>
-      <span class="l6">thing a brand can do.</span>
-    </h1>
+    <!-- The title sits blurred; it comes into focus while the mouse is over it (or on tap) -->
+    <div class="hero__focus blur-focus" tabindex="0">
+      <h1 class="hero__text">
+        <span class="l1">A creative playground built</span>
+        <span class="l2">on one belief:</span>
+        <span class="l3">playing it</span>
+        <span class="l4">safe is</span>
+        <span class="l5">the riskiest</span>
+        <span class="l6">thing a brand can do.</span>
+      </h1>
 
-    <!-- Placeholder: swap for the real wordmark SVG -->
-    <div class="wordmark">unconventionalists</div>
+      <img class="wordmark" src="wordmark.svg" alt="unconventionalists">
+    </div>
   </header>
 
-  <!-- SERVICES -->
-  <section class="services" id="works">
-    <div class="services__left">
-      <div class="services__intro">
-        <h2>Services</h2>
-        <p>If mundane is what you sought,<br>you have wandered into the wrong place.</p>
-      </div>
-
-      <div class="services__preview" aria-live="polite">
-        <div class="stack">
-          <div class="card card--3"></div>
-          <div class="card card--2"></div>
-          <div class="card card--1"></div>
+  <!-- SERVICES: clicking a service slides the columns before it to the left,
+       opening a space (like a sliding door) where its work is shown -->
+  <section class="services" id="services">
+    <div class="services__track">
+      <div class="services__panel">
+        <div class="services__intro">
+          <h2>Services</h2>
+          <p>If mundane is what you sought,<br>you have wandered into the wrong place.</p>
         </div>
-        <p class="services__desc">work description - talks about<br>the details of the project shown.</p>
-      </div>
-    </div>
 
-    <ul class="services__cols">
-      <li><a href="#" data-desc="Brand design - identities, logos and the systems behind them."><span class="v">Brand Design</span><span class="num">01</span></a></li>
-      <li><a href="#" data-desc="Advertising - campaigns that refuse to blend in."><span class="v">Advertising</span><span class="num">02</span></a></li>
-      <li><a href="#" data-desc="Social media - content people stop scrolling for."><span class="v">Social Media</span><span class="num">03</span></a></li>
-      <li><a href="#" data-desc="Film production - from idea to final cut."><span class="v">Film Production</span><span class="num">04</span></a></li>
-      <li><a href="#" data-desc="Everything else we can dream up together."><span class="v">Etc</span><span class="num">05</span></a></li>
-    </ul>
+        <div class="services__preview" aria-live="polite">
+          <div class="stack">
+            <div class="card card--3"></div>
+            <div class="card card--2"></div>
+            <div class="card card--1"></div>
+          </div>
+          <p class="services__desc">work description - talks about<br>the details of the project shown.</p>
+        </div>
+      </div>
+
+      <button class="col" type="button" data-desc="Brand design - identities, logos and the systems behind them."><span class="v">Brand Design</span><span class="zh" lang="zh">品牌</span></button>
+      <button class="col" type="button" data-desc="Advertising - campaigns that refuse to blend in."><span class="v">Advertising</span><span class="zh" lang="zh">广告</span></button>
+      <button class="col" type="button" data-desc="Social media - content people stop scrolling for."><span class="v">Social Media</span><span class="zh" lang="zh">社媒</span></button>
+      <button class="col" type="button" data-desc="Film production - from idea to final cut."><span class="v">Film Production</span><span class="zh" lang="zh">影视制作</span></button>
+      <button class="col" type="button" data-desc="Everything else we can dream up together."><span class="v">Etc</span><span class="zh" lang="zh">其它</span></button>
+    </div>
   </section>
 
   <!-- CONTACT -->
