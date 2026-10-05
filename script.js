@@ -5,11 +5,13 @@ document.querySelectorAll('.blur-focus').forEach((el) => {
   });
 });
 
-// Services: clicking a service slides the columns before it over to the left,
-// like a sliding door, and shows that service's work in the space it opens.
+// Services: like flipping open a book. Clicking a service turns it, and every
+// column before it, over to the left; its work is revealed from right to left
+// in the space it opens.
 const services = document.querySelector('.services');
 if (services) {
   const panel = services.querySelector('.services__panel');
+  const preview = services.querySelector('.services__preview');
   const cols = [...services.querySelectorAll('.col')];
   const desc = services.querySelector('.services__desc');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -35,13 +37,19 @@ if (services) {
     slide(() => {
       active = index;
       cols.forEach((col, i) => {
-        col.classList.toggle('is-before', i < index);
+        col.classList.toggle('is-before', i <= index);
         col.classList.toggle('is-active', i === index);
         col.setAttribute('aria-expanded', i === index);
       });
       services.classList.toggle('is-open', index > -1);
       if (index > -1) desc.textContent = cols[index].dataset.desc;
     });
+    if (index > -1 && !reduceMotion.matches) {
+      preview.animate(
+        [{ clipPath: 'inset(0 0 0 100%)' }, { clipPath: 'inset(0 0 0 0)' }],
+        { duration: 800, easing: 'cubic-bezier(.65, 0, .35, 1)' }
+      );
+    }
   };
 
   cols.forEach((col, i) => {

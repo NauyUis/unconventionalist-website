@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project | The Unconventionalists</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="works-header">
+    <a class="blur-focus" href="index.html" aria-label="Back to home">
+      <img class="wordmark" src="wordmark.svg" alt="unconventionalists">
+    </a>
+  </header>
+
+  <nav class="works-nav">
+    <a class="blur-focus" href="index.html#who">who are we.</a>
+    <a class="blur-focus" href="works.html">our works.</a>
+    <a class="blur-focus" href="index.html#contact">contact</a>
+  </nav>
+
+  <!-- One template for all projects: project.html?p=project-1 -->
+  <main class="proj">
+    <section class="proj__row proj__intro">
+      <div class="proj__side">
+        <h1 class="proj__name blur-focus" tabindex="0"></h1>
+        <p class="proj__desc blur-focus" tabindex="0"></p>
+        <a class="proj__back blur-focus" href="works.html">back</a>
+      </div>
+      <div class="proj__hero ph"></div>
+    </section>
+
+    <section class="proj__row">
+      <p class="proj__label blur-focus" tabindex="0">full film</p>
+      <div class="proj__media"><div class="ph ph--wide"></div></div>
+    </section>
+
+    <section class="proj__row proj__row--plain">
+      <p class="proj__label"></p>
+      <div class="proj__media"><div class="ph ph--wide"></div></div>
+    </section>
+
+    <section class="proj__row">
+      <p class="proj__label blur-focus" tabindex="0">visuals display</p>
+      <div class="proj__media proj__grid">
+        <div class="ph ph--tall"></div>
+        <div class="ph ph--tall"></div>
+        <div class="ph ph--tall"></div>
+        <div class="ph ph--square"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="works-data.js"></script>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const project = PROJECTS[params.get('p')] || PROJECTS['project-1'];
+    const service = SERVICES.find((s) => s.slug === params.get('s'));
+    document.title = `${project.name} | The Unconventionalists`;
+    document.querySelector('.proj__name').textContent = project.name;
+    document.querySelector('.proj__desc').textContent = project.desc;
+    // "back" returns to the service this project was opened from
+    if (service) document.querySelector('.proj__back').href = `service.html?s=${service.slug}`;
+    if (project.hero) document.querySelector('.proj__hero').innerHTML = `<img src="${project.hero}" alt="">`;
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

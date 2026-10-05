@@ -22,11 +22,12 @@
       <a class="blur-focus" href="#contact">contact</a>
     </nav>
 
+    <!-- Grid lines, placed as in Figma; the right one stops short beside the title -->
     <div class="hero__grid" aria-hidden="true">
-      <span class="line line--v" style="left: 6%"></span>
-      <span class="line line--v" style="left: 8.1%"></span>
-      <span class="line line--v" style="left: 40.6%"></span>
-      <span class="line line--v" style="left: 91.3%"></span>
+      <span class="line line--v hero__v1"></span>
+      <span class="line line--v hero__v2"></span>
+      <span class="line line--v hero__v3"></span>
+      <span class="line line--v hero__v4"></span>
     </div>
 
     <!-- The title sits blurred; it comes into focus while the mouse is over it (or on tap) -->
@@ -49,7 +50,7 @@
   <section class="services" id="services">
     <div class="services__track">
       <div class="services__panel">
-        <div class="services__intro">
+        <div class="services__intro blur-focus" tabindex="0">
           <h2>Services</h2>
           <p>If mundane is what you sought,<br>you have wandered into the wrong place.</p>
         </div>
@@ -60,7 +61,7 @@
             <div class="card card--2"></div>
             <div class="card card--1"></div>
           </div>
-          <p class="services__desc">work description - talks about<br>the details of the project shown.</p>
+          <p class="services__desc blur-focus" tabindex="0">work description - talks about<br>the details of the project shown.</p>
         </div>
       </div>
 
@@ -74,12 +75,12 @@
 
   <!-- CONTACT -->
   <section class="contact" id="contact">
-    <span class="line line--v contact__line" aria-hidden="true"></span>
-    <h2>Contact</h2>
+    <span class="line line--v contact__v1" aria-hidden="true"></span>
+    <span class="line line--v contact__v2" aria-hidden="true"></span>
+    <h2 class="blur-focus" tabindex="0">Contact</h2>
     <div class="contact__info">
-      <!-- Check spelling against Figma -->
-      <a href="mailto:theunconventionalists@gmail.com">theunconventionalists@gmail.com</a>
-      <a href="https://instagram.com/unconventionalists.studio" target="_blank" rel="noopener">@unconventionalists.studio</a>
+      <a class="blur-focus" href="mailto:theunconventionalism@gmail.com">theunconventionalism@gmail.com</a>
+      <a class="blur-focus" href="https://instagram.com/unconventionalists.studio" target="_blank" rel="noopener">@unconventionalists.studio</a>
     </div>
   </section>
 
